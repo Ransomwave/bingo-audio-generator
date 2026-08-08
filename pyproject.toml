@@ -1,0 +1,9 @@
+[project]
+name = "bingo-audio-generator"
+version = "0.1.0"
+description = "Generate English TTS .ogg audio files for all 75 bingo balls"
+requires-python = ">=3.9"
+dependencies = [
+    "gTTS>=2.5.0",
+    "pydub>=0.25.1",
+]
