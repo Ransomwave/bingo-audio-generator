@@ -47,6 +47,20 @@ def generate_bingo_audio(output_dir="bingo_audio"):
         os.remove(tmp_mp3)
         print(f"  Created {ball}.ogg")
 
+    # Generate "Bingo!" voiceline
+    bingo_text = "Bingo!"
+    bingo_ogg_path = os.path.join(output_dir, "bingo.ogg")
+    if not os.path.exists(bingo_ogg_path):
+        tmp_bingo_mp3 = os.path.join(output_dir, "_tmp_bingo.mp3")
+        tts = gTTS(text=bingo_text, lang="en")
+        tts.save(tmp_bingo_mp3)
+
+        audio = AudioSegment.from_mp3(tmp_bingo_mp3)
+        audio.export(bingo_ogg_path, format="ogg")
+
+        os.remove(tmp_bingo_mp3)
+        print(f"  Created bingo.ogg")
+
     print("Done!")
 
 
